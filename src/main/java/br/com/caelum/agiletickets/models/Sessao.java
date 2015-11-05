@@ -121,4 +121,26 @@ public class Sessao {
 		return preco;
 	}
 	
+	public double ingressosDisponiveis() {
+		return (this.getTotalIngressos() - this.getIngressosReservados()) / this.getTotalIngressos().doubleValue();
+	}
+	
+	public BigDecimal calcularDezPorcentoPreco() {
+		return this.getPreco().multiply(BigDecimal.valueOf(0.10));
+	}
+	
+	public BigDecimal calcularPercentual() {
+		return this.getPreco().multiply(BigDecimal.valueOf(this.getEspetaculo().getTipo().percentualAcrescimo));
+	}
+	
+	public BigDecimal calcularAcrescimo() {
+		BigDecimal precoCalculado = this.getPreco();
+		if(this.ingressosDisponiveis() <= this.getEspetaculo().getTipo().margemOcupacao) { 
+			precoCalculado = precoCalculado.add(calcularPercentual());
+		} 
+		if ( this.getDuracaoEmMinutos() != null && this.getDuracaoEmMinutos() > 60 ){
+			precoCalculado = precoCalculado.add(calcularDezPorcentoPreco());
+		}
+		return precoCalculado;
+	}
 }
