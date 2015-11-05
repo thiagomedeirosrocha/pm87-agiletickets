@@ -143,4 +143,9 @@ public class EspetaculosController {
 		return espetaculo;
 	}
 	
+	@Get("/mensagem")
+	public void emitirMensagem() {
+		System.out.println("Mensagem na feature #1");
+	}
+	
 }
