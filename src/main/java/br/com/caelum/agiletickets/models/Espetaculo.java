@@ -104,10 +104,10 @@ public class Espetaculo {
 		int qtdSessoes = 0;
 		if ( Periodicidade.DIARIA.equals(periodicidade) ) {
 			plusDays = 1;
-			qtdSessoes = fim.getDayOfMonth() - inicio.getDayOfMonth();
+			qtdSessoes = fim.getDayOfYear() - inicio.getDayOfYear();
 		} else if ( Periodicidade.SEMANAL.equals(periodicidade) ) {
 			plusDays = 7;
-			qtdSessoes = (fim.getDayOfMonth() - inicio.getDayOfMonth()) / plusDays;
+			qtdSessoes = (fim.getDayOfYear() - inicio.getDayOfYear()) / plusDays;
 		}
 		DateTime dataInicio = inicio.toDateTimeAtCurrentTime();
 		for ( int i = 0; i <= qtdSessoes; i++ ) {
