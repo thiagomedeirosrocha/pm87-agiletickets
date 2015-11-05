@@ -100,6 +100,7 @@ public class Espetaculo {
      * Repare que a data da primeira sessao é sempre a data inicial.
      */
 	public List<Sessao> criaSessoes(LocalDate inicio, LocalDate fim, LocalTime horario, Periodicidade periodicidade) {
+
 		List<Sessao> sessoes = new ArrayList<Sessao>();
 		if ( Periodicidade.DIARIA.equals(periodicidade) ) {
 			int diffData = fim.getDayOfMonth() - inicio.getDayOfMonth();
@@ -112,6 +113,7 @@ public class Espetaculo {
 			}
 		}
 		return sessoes;
+
 	}
 	
 	public boolean Vagas(int qtd, int min)
