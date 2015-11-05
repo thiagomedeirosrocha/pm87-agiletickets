@@ -103,7 +103,7 @@ public class Espetaculo {
 
 		List<Sessao> sessoes = new ArrayList<Sessao>();
 		if ( Periodicidade.DIARIA.equals(periodicidade) ) {
-			int diffData = fim.getDayOfMonth() - inicio.getDayOfMonth();
+			int diffData = fim.getDayOfYear() - inicio.getDayOfYear();
 			DateTime dataInicio = inicio.toDateTimeAtCurrentTime();
 			for ( int i = 0; i <= diffData; i++ ) {
 				Sessao novaSessao = new Sessao();
